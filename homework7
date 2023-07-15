@@ -1,0 +1,107 @@
+# Write a function called merge that takes two already sorted lists of possibly different lengths, and merges them into a single sorted list. Do this without using the sort method.
+
+  def merge(list1, list2):
+    merged_list = []
+    i = 0
+    j = 0
+
+    while i < len(list1) and j < len(list2):
+        if list1[i] <= list2[j]:
+            merged_list.append(list1[i])
+            i += 1
+        else:
+            merged_list.append(list2[j])
+            j += 1
+
+
+    while i < len(list1):
+        merged_list.append(list1[i])
+        i += 1
+
+
+    while j < len(list2):
+        merged_list.append(list2[j])
+        j += 1
+
+    return merged_list
+    
+  print(merge([1,3,5],[3,5,8,9])) 
+
+
+# Write a function called is_sorted that is given a list and returns True if the list is sorted and False otherwise. Do this without using the sort method.
+
+  def is_sorted(list1):
+    for i in range(len(list1) - 1):
+        if list1[i] > list1[i + 1]:
+            return False
+    return True
+
+  print(is_sorted([1,3,5])) 
+  print(is_sorted([2,1,5]))
+
+
+# Write a function called calculate_area that takes the radius of a circle as an argument. Inside the function, calculate the area of the circle (πr^2) and print it. Test the function by calling it with different radius values.
+
+    
+import math
+
+def calculate_area(radius):
+    area = math.pi * radius ** 2
+    print("The area of the circle is:", area)
+
+calculate_area(2)
+calculate_area(15)
+calculate_area(5.5)  
+
+
+# Create a global variable called counter and initialize it with 0. Write a function called increment_counter that increments the value of counter by 1 and prints the updated value. Call the function multiple times and observe the changes in the global variable.
+
+counter = 0
+def increment_counter():
+    global counter
+    counter += 1
+    print("Counter:", counter)
+
+increment_counter()
+increment_counter()
+increment_counter()
+
+
+# Write a function called outer_function that takes a parameter x. Inside outer_function, define another function called inner_function that multiplies x by a given factor. Call inner_function from outer_function and print the result.
+
+  def outer_function(x):
+    def inner_function(factor):
+        result = x * factor
+        print(result)
+
+    inner_function(2)  
+  
+  outer_function("hello")
+
+
+# Create a global variable called x and set it to 10. Write a function called my_function that defines a local variable with the same name x and assigns it a value of 20. Inside the function, print the local x variable and the global x variable. Call my_function and observe the output.
+
+x = 10
+
+def my_function():
+    x = 20
+    print("Local x:", x)
+    print("Global x:", globals()['x'])
+
+my_function()
+
+
+
+# Write a function called power_of that takes a parameter n and returns a function called power that calculates the nth power of a given number. Test the power_of function by calling it with different values of n and then using the returned power function to calculate powers.
+
+  def power_of(n):
+    def power(x):
+        return x ** n
+    return power
+
+  power_square = power_of(2)
+  result = power_square(7)
+  print(result)
+
+
+  
